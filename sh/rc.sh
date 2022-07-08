@@ -49,14 +49,16 @@ case $DF_OS in
     # TODO: add more package installs for other OSes
 esac
 
-# get shell type
-DF_SHELL=`ps -p $$ | awk '(NR>1){print $NF}'`
-case $DF_SHELL in
-    "zsh") DF_DIR="${(%):-%x}" ;;
-    "bash") DF_DIR="${BASH_SOURCE[0]}" ;;
-    *) DF_DIR="$0" ;;
-esac
-export DF_DIR=$(dirname -- $(dirname -- $(realpath -- $DF_DIR)))
+# get dotfile directory
+if [ -z "$DF_DIR" ]; then
+    DF_SHELL=`ps -p $$ | awk '(NR>1){print $NF}'`
+    case $DF_SHELL in
+        "zsh") DF_DIR="${(%):-%x}" ;;
+        "bash") DF_DIR="${BASH_SOURCE[0]}" ;;
+        *) DF_DIR="$0" ;;
+    esac
+    export DF_DIR=$(dirname -- $(dirname -- $(realpath -- $DF_DIR)))
+fi
 
 # ssh agent
 ssh_check() {
@@ -94,6 +96,9 @@ export HISTSIZE=9999999
 export EDITOR="nvim"
 export VISUAL="nvim"
 export LS_COLORS="$LS_COLORS:ow=1;94"
+
+# bat theme
+export BAT_THEME="fly16"
 
 # aliases
 alias ls='ls --color=auto'
