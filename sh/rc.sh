@@ -52,7 +52,7 @@ esac
 # get shell type
 DF_SHELL=`ps -p $$ | awk '(NR>1){print $NF}'`
 case $DF_SHELL in
-    "zsh") DF_DIR="${(%):~%x}" ;;
+    "zsh") DF_DIR="${(%):-%x}" ;;
     "bash") DF_DIR="${BASH_SOURCE[0]}" ;;
     *) DF_DIR="$0" ;;
 esac
