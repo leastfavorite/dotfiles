@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
-#
-## if not running interactively, return
+
+# if not running interactively, return
 [[ $- != *i* || -n $DF_FORCE_RC ]] && return
 
 . "$(dirname -- $(realpath -- "${(%):-%x}"))/rc.sh"
