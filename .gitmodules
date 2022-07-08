@@ -4,3 +4,6 @@
 [submodule "sh/plug/zsh-autosuggestions"]
 	path = sh/plug/zsh-autosuggestions
 	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "kitty/vim-kitty-navigator"]
+	path = kitty/vim-kitty-navigator
+	url = git@github.com:leastfavorite/vim-kitty-navigator.git

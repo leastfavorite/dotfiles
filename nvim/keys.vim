@@ -23,15 +23,12 @@ nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '+'
+    \| execute 'OSCYankReg +'
+    \| endif
 " better indentation
 vnoremap < <gv
 vnoremap > >gv
-
-" better window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 " whitespace removal with sw
 nnoremap <silent> <leader>w :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>

@@ -1,9 +1,11 @@
-call plug#begin(g:dotfile_folder . '/local/plugged')
-
 " run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
+    \| PlugInstall --sync | source $MYVIMRC
+    \| endif
+
+" if you're not using my dotfile repo, use
+" call plug#begin(stdpath('data') . '/plugged')
+call plug#begin(g:dotfile_folder . '/local/plugged')
 
 " Rice
 Plug 'bluz71/vim-moonfly-colors'
@@ -15,13 +17,15 @@ Plug 'airblade/vim-gitgutter'
 " Utility
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'knubie/vim-kitty-navigator'
+Plug 'leastfavorite/vim-kitty-navigator'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'airblade/vim-rooter'
 Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rsi'
 Plug 'junegunn/vim-easy-align'
+Plug 'ojroques/vim-oscyank', {'branch': 'main'}
 
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
