@@ -14,7 +14,7 @@ else
 fi
 
 if ! git merge-base --is-ancestor "$revA" "$revB" && \
-    ! git merge-base --is-ancestor "$revB" "$rebA"
+  ! git merge-base --is-ancestor "$revB" "$revA"
 then
     printf "diverged\n"
     exit 1
