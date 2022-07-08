@@ -1,0 +1,6 @@
+[submodule "sh/plug/fast-syntax-highlighting"]
+	path = sh/plug/fast-syntax-highlighting
+	url = git@github.com:zdharma-continuum/fast-syntax-highlighting.git
+[submodule "sh/plug/zsh-autosuggestions"]
+	path = sh/plug/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
