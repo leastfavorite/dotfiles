@@ -21,33 +21,33 @@ if [ $DF_OS = "mac" ]; then
 fi
 
 # install packages
-case $DF_OS in
-    "mac")
-        DF_PKGS_TO_INSTALL=`mktemp`
-        DF_INSTALLED_PKGS=`brew list`
-        install_pkg() {
-            if ! echo $DF_INSTALLED_PKGS | grep -q "\b$1\b"; then
-                warn "Package '$1' not found. Trying to install..."
-                echo $1 >> $DF_PKGS_TO_INSTALL
-            fi
-        }
-        install_pkg kitty
-        install_pkg coreutils
-        install_pkg python
-        install_pkg fzf
-        install_pkg neovim
-        install_pkg ripgrep
-        install_pkg bat
-        install_pkg node
-        install_pkg yarn
-	install_pkg wget
+# case $DF_OS in
+#     "mac")
+#         DF_PKGS_TO_INSTALL=`mktemp`
+#         DF_INSTALLED_PKGS=`brew list`
+#         install_pkg() {
+#             if ! echo $DF_INSTALLED_PKGS | grep -q "\b$1\b"; then
+#                 warn "Package '$1' not found. Trying to install..."
+#                 echo $1 >> $DF_PKGS_TO_INSTALL
+#             fi
+#         }
+#         install_pkg kitty
+#         install_pkg coreutils
+#         install_pkg python
+#         install_pkg fzf
+#         install_pkg neovim
+#         install_pkg ripgrep
+#         install_pkg bat
+#         install_pkg node
+#         install_pkg yarn
+# 	install_pkg wget
 
-        if [ -s "$DF_PKGS_TO_INSTALL" ]; then
-	    brew install `cat $DF_PKGS_TO_INSTALL`
-        fi
-    ;;
-    # TODO: add more package installs for other OSes
-esac
+#         if [ -s "$DF_PKGS_TO_INSTALL" ]; then
+# 	    brew install `cat $DF_PKGS_TO_INSTALL`
+#         fi
+#     ;;
+#     # TODO: add more package installs for other OSes
+# esac
 
 # get dotfile directory
 if [ -z "$DF_DIR" ]; then

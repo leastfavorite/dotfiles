@@ -9,7 +9,7 @@ call plug#begin(g:dotfile_folder . '/local/plugged')
 
 " Rice
 Plug 'bluz71/vim-moonfly-colors'
-Plug 'bluz71/vim-moonfly-statusline'
+Plug 'leastfavorite/vim-mistfly-statusline'
 Plug 'ap/vim-buftabline'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
@@ -26,12 +26,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rsi'
 Plug 'junegunn/vim-easy-align'
 Plug 'ojroques/vim-oscyank', {'branch': 'main'}
+Plug 'tpope/vim-sleuth'
 
 " Completion
+let g:coc_global_extensions = [ 'coc-json', 'coc-marketplace', 'coc-clangd', 'coc-snippets' ]
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'fannheyward/coc-marketplace', {'do': 'yarn install --frozen-lockfile'}
-Plug 'clangd/coc-clangd', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -41,7 +40,8 @@ Plug 'fladson/vim-kitty'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-python/python-syntax'
 Plug 'nachumk/systemverilog.vim'
-Plug 'lervag/vimtex'
+let g:polyglot_disabled = ["autoindent"]
 Plug 'sheerun/vim-polyglot'
+Plug 'evanleck/vim-svelte'
 
 call plug#end()
