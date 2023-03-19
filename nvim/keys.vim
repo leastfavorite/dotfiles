@@ -18,7 +18,7 @@ nnoremap <leader>d :bp\|bd #<CR>
 
 " paste from keyboard
 vnoremap <leader>y "+y
-nnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
 
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P

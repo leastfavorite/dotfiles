@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+# yarn setup
+export DF_NPM_DIR="$DF_DIR/local/.npm_packages"
+export PATH="$PATH:$DF_NPM_DIR/bin"
+export MANPATH="$MANPATH:$DF_NPM_DIR/share/man"
+
+# shell stuff
+export HISTCONTROL=ignoreboth:erasedups
+export SAVEHIST=9999999
+export HISTSIZE=9999999
+export EDITOR="nvim"
+export VISUAL="nvim"
+export LS_COLORS="$LS_COLORS:ow=1;94"
+
+# bat theme
+export BAT_THEME="fly16"
+
+setopt GLOB_DOTS
+bindkey -e
+setopt appendhistory
+export HISTFILE="$HOME/.zsh_hist"
+

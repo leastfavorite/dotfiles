@@ -1,0 +1,47 @@
+#!/bin/zsh
+
+PROMPT_SSH_PREFIX=""
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    PROMPT_SSH_PREFIX='%F{8}%M %b%f%F{red}♥ '
+fi
+
+PROMPT_COLORS=(210 216 222 228 192 156 120 121 122 123 117 111 105 141 177 213 212 211)
+export PROMPT_COLOR_INDEX=$(($RANDOM % ${#PROMPT_COLORS[@]}))
+
+function prompt_precmd() {
+    RETVAL="$?"
+
+    PROMPT_DIR="%F{3}%B%~ %b%f"
+
+    PROMPT_COLOR_INDEX=$(((PROMPT_COLOR_INDEX % ${#PROMPT_COLORS[@]}) + 1))
+    PROMPT_COLOR=$PROMPT_COLORS[$PROMPT_COLOR_INDEX]
+
+    # autocomplete colors
+    zstyle ':completion:*:descriptions' format $'%{\e[0;38;5;'${PROMPT_COLOR}$'m%}completing %B%d%b%{\e[0m%}'
+
+    # syntax highlighting colors
+    FAST_HIGHLIGHT_STYLES[command]="fg=${PROMPT_COLOR}"
+    FAST_HIGHLIGHT_STYLES[builtin]="fg=${PROMPT_COLOR}"
+    FAST_HIGHLIGHT_STYLES[alias]="fg=${PROMPT_COLOR}"
+    FAST_HIGHLIGHT_STYLES[function]="fg=${PROMPT_COLOR}"
+
+    PROMPT_RETVAL=
+    if [ $RETVAL -ne 0 ]; then
+        PROMPT_RETVAL="%F{red}« %B$RETVAL%b%f"
+    fi
+
+    CURRENT_GIT_BRANCH=`git rev-parse --abbrev-ref HEAD 2>/dev/null`
+    PROMPT_GIT=
+    if [ -n "$CURRENT_GIT_BRANCH" ]; then
+        PROMPT_GIT="%F{5} $CURRENT_GIT_BRANCH%f"
+    fi
+
+    PROMPT_TIME="%F{7}  %D{%L:%M:%S}%f"
+
+    export RPROMPT="$PROMPT_RETVAL$PROMPT_TIME"
+    export PROMPT="$PROMPT_SSH_PREFIX$PROMPT_DIR$PROMPT_GIT"$'\n'"%B%F{$PROMPT_COLOR}%n%b %F{blue}»%f "
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook -d precmd prompt_precmd
+add-zsh-hook precmd prompt_precmd

@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+alias ls='ls --color=auto'
+alias la='ls -a'
+alias ll='ls -la'
+alias l='ls'
+alias l.="ls -A | egrel '^\.'"
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+alias wget='wget -c'
+
+alias psa='ps auxf'
+alias psgrep='ps aux | grep -v grep | grep -i -e VSZ -e'
+
+alias rg='rg --sort path'
+alias todo='$EDITOR $HOME/todo.txt'

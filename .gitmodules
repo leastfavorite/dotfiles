@@ -1,8 +1,8 @@
 [submodule "sh/plug/fast-syntax-highlighting"]
-	path = sh/plug/fast-syntax-highlighting
+	path = zsh/plug/external/fast-syntax-highlighting
 	url = git@github.com:zdharma-continuum/fast-syntax-highlighting.git
 [submodule "sh/plug/zsh-autosuggestions"]
-	path = sh/plug/zsh-autosuggestions
+	path = zsh/plug/external/zsh-autosuggestions
 	url = git@github.com:zsh-users/zsh-autosuggestions.git
 [submodule "kitty/vim-kitty-navigator"]
 	path = kitty/vim-kitty-navigator

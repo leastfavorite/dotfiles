@@ -1,0 +1,5 @@
+#!/bin/zsh
+if [[ $OSTYPE == "darwin"* ]]; then
+    echo "mac"; return 0
+fi
+return 1

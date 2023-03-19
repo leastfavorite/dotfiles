@@ -8,7 +8,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " coc-fix
-nmap <silent> <leader>f <Plug>(coc-fix-current>
+nmap <silent> <leader>f <Plug>(coc-fix-current)
 
 " go to code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -26,6 +26,7 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
+" c++ switch source and header
 augroup coc_augroup
     autocmd!
     autocmd FileType c,cpp,h,hpp nnoremap <leader>h :<C-u>CocCommand clangd.switchSourceHeader<CR>
@@ -34,24 +35,10 @@ augroup end
 " CocExplorer
 nmap <leader>o :CocCommand explorer<CR>
 
-" confirms selection if any or just break line if none
-function! EnterSelect()
-    " if the popup is visible and an option is not selected
-    if pumvisible() && complete_info()["selected"] == -1
-        return "\<C-y>\<CR>"
-
-    " if the pum is visible and an option is selected
-    elseif pumvisible()
-        return coc#_select_confirm()
-
-    " if the pum is not visible
-    else
-        return "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-    endif
-endfunction
-
-" makes <CR> confirm selection if any or just break line if none
-inoremap <silent><expr> <cr> EnterSelect()
+inoremap <silent><expr> <CR> coc#pum#visible() && coc#pum#info()["index"] > 0 ? coc#pum#confirm() 
+            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <S-CR> coc#pum#visible() ? coc#pum#confirm()
+            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 let g:python_highlight_all = 1
 let g:vim_json_conceal = 0
