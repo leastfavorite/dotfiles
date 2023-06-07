@@ -2,4 +2,4 @@
 if [[ $OSTYPE == "darwin"* ]]; then
     echo "mac"; return 0
 fi
-return 1
+grep -iP "^ID=" /etc/os-release | cut -b4-

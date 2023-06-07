@@ -3,6 +3,7 @@
 export DF_DIR=${${(%):-%x}:A:h:h}
 
 path+="$DF_DIR/zsh/bin"
+path+="$DF_DIR/local/bin"
 
 for plug in $DF_DIR/zsh/plug/*; do
     # OLD_TIME=$(ms)
