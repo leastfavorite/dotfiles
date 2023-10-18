@@ -29,7 +29,8 @@ Plug 'ojroques/vim-oscyank', {'branch': 'main'}
 Plug 'tpope/vim-sleuth'
 
 " Completion
-let g:coc_global_extensions = [ 'coc-json', 'coc-marketplace', 'coc-clangd', 'coc-snippets' ]
+let g:coc_global_extensions = [ 'coc-json', 'coc-marketplace',
+            \'coc-clangd', 'coc-snippets', 'coc-svelte' ]
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'SirVer/ultisnips'
@@ -43,5 +44,6 @@ Plug 'nachumk/systemverilog.vim'
 let g:polyglot_disabled = ["autoindent"]
 Plug 'sheerun/vim-polyglot'
 Plug 'evanleck/vim-svelte'
+Plug 'prisma/vim-prisma'
 
 call plug#end()

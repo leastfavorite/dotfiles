@@ -36,3 +36,4 @@ hi! MoonflyRedAlert guibg=#1c1c1c ctermbg=234
 
 hi QuickScopePrimary guifg=#f09479 gui=bold,underline ctermfg=8 cterm=bold,underline
 hi QuickScopeSecondary guifg=#ff5189 gui=bold,underline ctermfg=8 cterm=bold,underline
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']

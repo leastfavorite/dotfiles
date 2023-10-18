@@ -5,6 +5,9 @@ let mapleader = 's'
 " zshrc in vim
 set shellcmdflag=-ic
 
+" mouse extends selection
+set mousemodel=extend
+
 " tabs to 4 spaces
 set expandtab
 set tabstop=4
