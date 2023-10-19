@@ -1,0 +1,23 @@
+local M = {}
+vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.conceallevel = 0
+vim.opt.hlsearch = true
+vim.opt.mouse = "a"
+vim.opt.pumheight = 15
+vim.opt.showmode = false
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.swapfile = false
+vim.opt.termguicolors = true
+vim.opt.undofile = true
+vim.opt.updatetime = 100
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.cursorline = true
+vim.opt.number = true
+vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = "80"
+return M
