@@ -35,7 +35,9 @@ make_link "$DF_DIR/kitty/vim-kitty-navigator/neighboring_window.py" "$HOME/.conf
 make_link "$DF_DIR/kitty/vim-kitty-navigator/pass_keys.py" "$HOME/.config/kitty/pass_keys.py"
 
 bat cache --build
-python3 -m pip install --upgrade pip
-pip3 install --user neovim
+# break system packages is probably bad, but otherwise we won't get
+# a new enough version of py-nvim
+python3 -m pip install --upgrade pip --break-system-packages
+pip3 install --user neovim --break-system-packages
 
 tic -x -o \~/.terminfo "$DF_DIR/kitty/xterm-kitty.infocmp"
